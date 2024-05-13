@@ -1,0 +1,7 @@
+node_modules
+*.js
+package-lock.json
+.env
+temp
+config.ts
+.DS_Store

@@ -11,17 +11,22 @@
   "devDependencies": {
     "@tsconfig/node14": "^14.1.2",
     "@tsconfig/node18": "^18.2.4",
+    "@types/lodash": "^4.17.1",
     "@types/node": "^20.12.7",
     "@types/uuid": "^9.0.8"
   },
   "dependencies": {
+    "-": "0.0.1",
     "axios": "^1.6.8",
+    "cron": "^3.1.7",
     "csvtojson": "^2.0.10",
     "dotenv": "^16.4.5",
     "google-auth-library": "^9.8.0",
     "google-spreadsheet": "^4.1.1",
     "js-md5": "^0.8.3",
+    "lodash": "^4.17.21",
     "md5": "^2.3.0",
+    "typescript": "^5.4.5",
     "uuid": "^9.0.1"
   }
 }

@@ -42,10 +42,21 @@ type FPEServiceConfig = {
     }>;
     loggingVersion: number;
     trafficSplit: number;
-  
   };
   siteDomain: string;
   siteId: string | number;
+  configs?: [
+    {
+      enabled: boolean;
+      serviceType: string;
+    }
+  ];
 };
 
-export type { AccessToken, BannerConfig, SiteConfig, ManualFloorsRule, FPEServiceConfig };
+export type {
+  AccessToken,
+  BannerConfig,
+  SiteConfig,
+  ManualFloorsRule,
+  FPEServiceConfig,
+};

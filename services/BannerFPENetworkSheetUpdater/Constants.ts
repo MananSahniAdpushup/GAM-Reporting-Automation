@@ -9,4 +9,14 @@ export default {
     false: "1",
   },
   CONTROL_KEY: "ap_fp_engine_ran=0",
+  SERVICE_CONFIGS: {
+    SERVICE_NAMES: {
+      DRSD: "bannerMultiplierDimensionReductionViaStandardDeviation",
+    },
+  },
+
+  ENGINE_TYPES: {
+    HC_FLOORS: "hcFloors",
+    MANUAL_FLOORS: "manualFloors",
+  },
 };

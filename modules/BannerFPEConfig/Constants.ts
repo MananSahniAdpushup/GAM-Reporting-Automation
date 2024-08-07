@@ -1,6 +1,6 @@
 export default {
   PATHS: {
-    ALL_BANNER_SITE_CONFIGS: "bannerfp/all?rootFields=floorPriceConfig,siteDomain,siteId",
+    ALL_BANNER_SITE_CONFIGS: "bannerfp/all?rootFields=floorPriceConfig,siteDomain,siteId,configs",
     BANNER_SITE_CONFIG: "/bannerfp/__SITE_ID__",
     ACCESS_TOKEN: "/auth/accessToken",
     REFRESH_TOKEN: "/auth/refreshToken",

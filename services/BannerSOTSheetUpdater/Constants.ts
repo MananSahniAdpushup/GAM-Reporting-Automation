@@ -96,4 +96,10 @@ export default {
     "ap_fp_engine_temp=refreshCount_incDec_5": "448972317266",
     "ap_fp_engine_temp=refreshCount_incDec_6": "448972317806",
   },
+
+  SERVICE_CONFIGS: {
+    SERVICE_NAMES: {
+      DRSD: "bannerMultiplierDimensionReductionViaStandardDeviation",
+    },
+  },
 };

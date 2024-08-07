@@ -7,7 +7,10 @@ import { FloorEngineType, FloorPriceConfig } from "./types";
 import csv from "csvtojson";
 import { GoogleSheetsData } from "../../modules/GoogleSheets/types";
 import { GAMReportOptions } from "../../modules/GAMAPI/types";
-import { BannerConfig } from "../../modules/BannerFPEConfig/types";
+import {
+  BannerConfig,
+  FPEServiceConfig,
+} from "../../modules/BannerFPEConfig/types";
 import _ from "lodash";
 
 class SOTSheetUpdater {
@@ -31,11 +34,33 @@ class SOTSheetUpdater {
     this.bannerFpeConfigInstance = bannerFpeConfig;
     this.sheetInstance = new GoogleSheet(this.sheetId, this.creds);
   }
+
+  isServiceEnabledOnSite(site: FPEServiceConfig): boolean {
+    const { configs = [], floorPriceConfig } = site;
+    const { floorEngineTypeSplit = [] } = floorPriceConfig;
+
+    const services = floorEngineTypeSplit.filter(
+      (fpe) => fpe.engineType === CONSTANTS.ENGINE_TYPES.HC_FLOORS
+    );
+    if (services.length === 0) return true;
+
+    const serviceConfig = configs.filter(
+      (config) =>
+        config.enabled &&
+        config.serviceType === CONSTANTS.SERVICE_CONFIGS.SERVICE_NAMES.DRSD
+    );
+    if (!serviceConfig.length) return false;
+    return true;
+  }
+
   async getAllEligibleSites(): Promise<Array<string | number>> {
     const allFPESites = await this.bannerFpeConfigInstance.getAllFPEConfigs();
     const eligibleSites: Array<string | number> = [];
     allFPESites.forEach((site) => {
-      if (!site.floorPriceConfig.enabled) {
+      if (
+        !site.floorPriceConfig.enabled ||
+        !this.isServiceEnabledOnSite(site)
+      ) {
         return;
       }
       eligibleSites.push(site.siteId);

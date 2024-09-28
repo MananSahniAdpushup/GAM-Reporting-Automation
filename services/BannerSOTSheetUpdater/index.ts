@@ -336,10 +336,12 @@ class SOTSheetUpdater {
       console.log(sites);
       // return;
       for (const site of sites) {
+        console.log(site);
         const data: Array<string | number | Record<string, string>> =
           await this.getSiteGAMData(site);
 
         await this.sheetInstance.append(data, this.sheetName);
+        await Utils.wait(CONSTANTS.WAIT_TIMEOUT);
       }
     } catch (error) {
       console.log(error);

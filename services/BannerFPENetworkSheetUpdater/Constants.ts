@@ -1,4 +1,5 @@
 export default {
+  WAIT_TIMEOUT: 10000,
   KVP_IDS: {
     "ap_fp_engine_ran=0": "448847497255",
     "ap_fp_engine_ran=1": "448847497258",

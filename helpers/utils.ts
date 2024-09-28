@@ -95,6 +95,12 @@ class Utils {
     });
     return dataframe;
   }
+
+  static async wait(timeout: number) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, timeout);
+    });
+  }
 }
 
 export default Utils;

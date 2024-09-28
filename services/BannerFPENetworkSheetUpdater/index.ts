@@ -235,11 +235,13 @@ class FPENetworkSheetUpdater {
       for (const site of eligibleSites) {
         let startDate = origStartDate;
         while (startDate <= endDate) {
+          console.log(site, startDate);
           const data = await this.getData(site, startDate, startDate);
           const sheetData = this.getSheetData(data);
           await this.sheetInstance.append(sheetData, this.sheetName);
           const nextDay = Utils.addDays(startDate, 1);
           startDate = nextDay;
+          await Utils.wait(CONSTANTS.WAIT_TIMEOUT);
         }
       }
     } catch (error) {

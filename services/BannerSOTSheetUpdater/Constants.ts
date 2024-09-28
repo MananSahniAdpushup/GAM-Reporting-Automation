@@ -1,4 +1,5 @@
 export default {
+  WAIT_TIMEOUT: 10000,
   ENGINE_TYPES: {
     HC_FLOORS: "hcFloors",
     MANUAL_FLOORS: "manualFloors",

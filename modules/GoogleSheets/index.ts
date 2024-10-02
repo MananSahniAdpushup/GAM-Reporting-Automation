@@ -63,7 +63,7 @@ class GoogleSheet implements Storable {
       await this.doc.loadInfo();
       const sheet = this.doc.sheetsByTitle[sheetTitle];
       await sheet.loadHeaderRow();
-      sheet.addRows(data);
+      await sheet.addRows(data);
     } catch (error) {
       console.log(error);
       throw new Error(`Failed to append data to Google Sheets: ${error}`);
